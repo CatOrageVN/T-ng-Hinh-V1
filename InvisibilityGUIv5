@@ -1,5 +1,5 @@
 -- Brookhaven Invisibility GUI
--- By Bot AI 😼
+-- By Bot TuanHyper
 
 local player = game.Players.LocalPlayer
 local char = player.Character or player.CharacterAdded:Wait()
@@ -20,7 +20,7 @@ frame.Draggable = true
 local title = Instance.new("TextLabel")
 title.Parent = frame
 title.Size = UDim2.new(1, 0, 0, 30)
-title.Text = "🫥 Invisibility GUI"
+title.Text = "Invisibility GUI"
 title.TextColor3 = Color3.new(1,1,1)
 title.BackgroundTransparency = 1
 title.Font = Enum.Font.SourceSansBold
