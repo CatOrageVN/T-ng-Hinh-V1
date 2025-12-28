@@ -1,0 +1,45 @@
+-- Brookhaven Invisibility (Improved)
+-- By Bot TuanHyper
+
+local player = game.Players.LocalPlayer
+local char = player.Character or player.CharacterAdded:Wait()
+
+local function applyInvisible(state)
+	for _,v in pairs(char:GetDescendants()) do
+		if v:IsA("BasePart") then
+			v.LocalTransparencyModifier = state and 1 or 0
+			v.CanCollide = not state
+		elseif v:IsA("Decal") then
+			v.Transparency = state and 1 or 0
+		elseif v:IsA("Accessory") then
+			if v:FindFirstChild("Handle") then
+				v.Handle.LocalTransparencyModifier = state and 1 or 0
+			end
+		end
+	end
+end
+
+-- GUI
+local gui = Instance.new("ScreenGui", game.CoreGui)
+local frame = Instance.new("Frame", gui)
+frame.Size = UDim2.new(0,200,0,110)
+frame.Position = UDim2.new(0.4,0,0.3,0)
+frame.BackgroundColor3 = Color3.fromRGB(25,25,25)
+frame.Active = true
+frame.Draggable = true
+
+local btn = Instance.new("TextButton", frame)
+btn.Size = UDim2.new(1,-20,1,-20)
+btn.Position = UDim2.new(0,10,0,10)
+btn.Text = "🫥 BẬT TÀNG HÌNH"
+btn.TextColor3 = Color3.new(1,1,1)
+btn.BackgroundColor3 = Color3.fromRGB(60,60,60)
+btn.Font = Enum.Font.SourceSansBold
+btn.TextSize = 18
+
+local invis = false
+btn.MouseButton1Click:Connect(function()
+	invis = not invis
+	applyInvisible(invis)
+	btn.Text = invis and "👁️ TẮT TÀNG HÌNH" or "🫥 BẬT TÀNG HÌNH"
+end)
